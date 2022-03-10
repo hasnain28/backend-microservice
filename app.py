@@ -6,13 +6,11 @@ instructors = [
     { 'firstName': "Muhammad", 'lastName': "Sannan"  }
 ]
 students = [
-    { 'id': "1", 'firstName': "Bilal", 'lastName': "Haider"  },
-    { 'id': "2",'firstName': "Mahmood", 'lastName': "Sultan"  },
-    { 'id': "3",'firstName': "Yasir", 'lastName': "Ali"  },
-    { 'id': "4",'firstName': "Haroon", 'lastName': "Khan"  },
-    { 'id': "5",'firstName': "Test", 'lastName': "User"  },
-    { 'id': "6",'firstName': "Ahsan", 'lastName': "Khan"  },
-    { 'id': "7",'firstName': "Asim", 'lastName': "Iqbal"  }
+    { 'id': "1", 'firstName': "Muhammad Hasnain", 'lastName': "Zaib"  },
+    { 'id': "2",'firstName': "Muhammad Hamza", 'lastName': "Zaib"  },
+    { 'id': "3",'firstName': "Haris", 'lastName': "zaib"  },
+    { 'id': "4",'firstName': "Haider", 'lastName': "Hussain"  },
+    { 'id': "5",'firstName': "Hamid", 'lastName': "Tahir"  },
 ]
 
 @app.route('/hello')
