@@ -5,7 +5,7 @@ services:
       context: https://github.com/hasnain28/backend-microservice.git#main
       dockerfile: Dockerfile
     networks:
-      - application
+      - hasnain-net
     ports:
     - "9098:8080"
     depends_on:
@@ -14,12 +14,12 @@ services:
       image: mongo
       restart: always
       environment:
-        MONGO_INITDB_ROOT_USERNAME: root
-        MONGO_INITDB_ROOT_PASSWORD: pass12345
+        MONGO_INITDB_ROOT_USERNAME: hasnain
+        MONGO_INITDB_ROOT_PASSWORD: hasnain12345
       ports:
         - "27017:27017"
       networks:
-        - application
+        - hasnain-net
       volumes:
         - mongodata:/data/db
   mongo-express:
@@ -27,8 +27,8 @@ services:
         environment:
           - ME_CONFIG_MONGODB_SERVER=mongodb
           - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
-          - ME_CONFIG_MONGODB_ADMINUSERNAME=root
-          - ME_CONFIG_MONGODB_ADMINPASSWORD=pass12345
+          - ME_CONFIG_MONGODB_ADMINUSERNAME=hasnain
+          - ME_CONFIG_MONGODB_ADMINPASSWORD=hasnain12345
           - ME_CONFIG_BASICAUTH_USERNAME=admin
           - ME_CONFIG_BASICAUTH_PASSWORD=admin123
         volumes:
@@ -41,12 +41,12 @@ services:
           timeout: 10s
           retries: 3
         networks:
-          - application
+          - hasnain-net
         ports:
           - "8081:8081"
         restart: always
 networks:
-  application:
+  hasnain-net:
 volumes:
   mongodata:
     name: mongodata
