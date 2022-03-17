@@ -3,7 +3,7 @@ services:
   backend:
     build:
       context: https://github.com/hasnain28/backend-microservice.git#main
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile
     networks:
       - hasnain-net
     ports:
