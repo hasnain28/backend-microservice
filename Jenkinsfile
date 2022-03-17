@@ -15,7 +15,7 @@ pipeline {
       steps {
 			dir('backend'){
 				sh 'docker container run --rm -p 8097:8080 --name node -d hasnainzaib/test-node-app'
-				sh 'sleep 5'
+				sh 'sleep 15'
 				sh 'curl -I http://localhost:8097'
 			}
 		}
