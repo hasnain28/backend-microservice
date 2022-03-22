@@ -13,13 +13,6 @@ students = [
     { 'id': "5",'firstName': "Hamid", 'lastName': "Tahir"  },
 ]
 
-//demo for webhook
-//another demo
-//for demo purpose
-//demo 2
-//demo 5
-//demo 6
-
 @app.route('/hello')
 def hello():
     greeting = "Hello world!"
