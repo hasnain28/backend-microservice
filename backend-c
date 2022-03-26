@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend
+  namespace: default
+data:
+  c.author: Hasnain
+  c.age: "28"
+  c.qualification: B.S
+  c.residence: rawalpindi
+  details.txt: |
+    Hasnain
+    Zaib
+    19
+    

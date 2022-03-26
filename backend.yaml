@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: python-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       tier: backend
@@ -17,9 +17,56 @@ spec:
       containers:
       - name: backend
         image: hasnainzaib/abc
+        env:
+          - name: NAME
+            valueFrom:
+              secretKeyRef:
+                name: backend
+                key: name
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: backend
+                key: password
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /hello
+            port: 8080
+          initialDelaySeconds: 3
+          failureThreshold: 2
+          periodSeconds: 3
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /hello
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 3
+          successThreshold: 1
+          timeoutSeconds: 1      
         ports:
         - containerPort: 8080
           name: tcp
+        volumeMounts:
+        - name: details-vol
+          mountPath: /user
+      volumes:
+      - name: details-vol
+        configMap:
+          name: backend
+          items:
+          - key: details.txt
+            path: details.txt
+      serviceAccountName: backend
+
 
 ---
 apiVersion: v1
@@ -34,3 +81,11 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: backend
+  name: backend
