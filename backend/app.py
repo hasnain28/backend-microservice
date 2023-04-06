@@ -2,12 +2,12 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 instructors = [
-    { 'firstName': "Muhammad Ali", 'lastName': "Kahoot"  },
-    { 'firstName': "Muhammad", 'lastName': "Sannan"  }
+    { 'firstName': "Muhammad Hasnain", 'lastName': "Zaib"  },
+    { 'firstName': "Muhammad", 'lastName': "Hamza"  }
 ]
 students = [
-    { 'id': "1", 'firstName': "Muhammad Hasnain", 'lastName': "Zaib"  },
-    { 'id': "2",'firstName': "Muhammad Hamza", 'lastName': "Zaib"  },
+    { 'id': "1", 'firstName': "Muhammad", 'lastName': "Naeem"  },
+    { 'id': "2",'firstName': "Muhammad", 'lastName': "Ali"  },
     { 'id': "3",'firstName': "Haris", 'lastName': "zaib"  },
     { 'id': "4",'firstName': "Haider", 'lastName': "Hussain"  },
     { 'id': "5",'firstName': "Hamid", 'lastName': "Tahir"  },
